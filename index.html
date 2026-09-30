@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿Cuánto necesito para el final? Calculadora de notas Colombia (0 a 5)</title>
+<meta name="description" content="Calcula cuánto necesitas sacar en el examen final para pasar la materia con la escala colombiana de 0.0 a 5.0. Gratis, rápida y configurable. ¡Pruébala ya!">
+<meta name="keywords" content="cuánto necesito para pasar, calculadora de notas Colombia, nota final, examen final, escala 0 a 5, calcular nota para aprobar, promedio ponderado">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://cuantonecesitoparapasar.netlify.app/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CO">
+<meta property="og:title" content="¿Cuánto necesito para el final? Calculadora de notas Colombia">
+<meta property="og:description" content="Descubre la nota exacta que necesitas en el examen final para aprobar con la escala colombiana de 0 a 5.">
+<meta property="og:url" content="https://cuantonecesitoparapasar.netlify.app/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="¿Cuánto necesito para el final?">
+<meta name="twitter:description" content="Calculadora gratis de la nota que necesitas en el final para pasar (escala 0 a 5).">
+<!-- Pega aquí tu meta de verificación de Google Search Console -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "¿Cuánto necesito para el final?",
+      "url": "https://cuantonecesitoparapasar.netlify.app/",
+      "description": "Calculadora gratuita para saber qué nota necesitas en el examen final para aprobar, con la escala colombiana de 0.0 a 5.0.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es-CO",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "COP" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuál es la nota mínima para aprobar en Colombia?",
+          "acceptedAnswer": { "@type": "Answer", "text": "En la mayoría de colegios y universidades de Colombia la escala va de 0.0 a 5.0 y la nota mínima aprobatoria es 3.0. Algunas instituciones usan 3.5 en posgrados o programas específicos, por eso la calculadora te deja cambiarla." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo se calcula la nota que necesito en el examen final?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Suma cada nota multiplicada por su porcentaje, réstala a la nota mínima para aprobar y divide el resultado entre el porcentaje del examen final expresado en decimal." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa si la nota que necesito es mayor a 5.0?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Significa que, con tus notas actuales, ya no es posible aprobar solo con el examen final. Consulta con tu docente si existen habilitaciones, recuperaciones o supletorios." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  body{margin:0;padding:16px;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#1a1a1a;line-height:1.6}
+  main{max-width:860px;margin:0 auto}
+  h1{font-size:clamp(1.6rem,4vw,2.3rem);line-height:1.2;margin:.4em 0 .3em;text-align:center}
+  .lead{text-align:center;margin:0 auto 1.4em;max-width:640px}
+  h2{font-size:1.4rem;margin:1.6em 0 .5em}
+  h3{font-size:1.1rem;margin:1.2em 0 .3em}
+  .tool{border:3px solid #F71FC6;border-radius:16px;padding:20px;background:rgba(247,31,198,.08)}
+  .tool h2{margin-top:0;color:#1a1a1a}
+  fieldset{border:2px dashed #F71FC6;border-radius:12px;margin:0 0 16px;padding:12px 14px}
+  legend{font-weight:700;padding:0 8px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  label{display:block;font-size:.9rem;font-weight:600;margin-bottom:4px}
+  input{width:100%;padding:10px;border:2px solid #F71FC6;border-radius:8px;font-size:1rem;background:#fff;color:#1a1a1a}
+  input:focus{outline:3px solid #47D395;outline-offset:1px}
+  .row{display:grid;grid-template-columns:1fr 130px 44px;gap:10px;align-items:end;margin-bottom:10px}
+  .row button{height:42px;padding:0;background:#fff;border:2px solid #F71FC6;color:#1a1a1a}
+  button{font:inherit;font-weight:700;cursor:pointer;border-radius:10px;padding:12px 22px;border:2px solid #1a1a1a}
+  .btn-add{background:#fff;border-color:#F71FC6;color:#1a1a1a;margin-top:4px}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+  .btn-calc{background:#F71FC6;color:#111;flex:1 1 180px;border-color:#F71FC6;font-size:1.05rem}
+  .btn-clear{background:#47D395;color:#111;flex:1 1 140px;border-color:#47D395;font-size:1.05rem}
+  button:hover{filter:brightness(.93)}
+  .result{margin-top:20px;border:3px solid #47D395;border-radius:16px;padding:18px;background:rgba(71,211,149,.18)}
+  .result[hidden]{display:none}
+  .big{font-size:2.6rem;font-weight:800;line-height:1.1;margin:.1em 0}
+  .msg{font-weight:600;margin:.3em 0}
+  .err{color:#b00020;font-weight:700;margin-top:12px}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:12px}
+  .stat{border:2px solid #47D395;border-radius:10px;padding:8px 10px;background:rgba(255,255,255,.6)}
+  .stat small{display:block}
+  table{border-collapse:collapse;width:100%;margin:1em 0}
+  th,td{border:1px solid #888;padding:8px;text-align:left}
+  th{background:rgba(247,31,198,.15)}
+  details{border:1px solid #888;border-radius:8px;padding:10px 14px;margin:8px 0}
+  summary{font-weight:700;cursor:pointer}
+  code{background:rgba(71,211,149,.25);padding:2px 6px;border-radius:4px}
+  footer{margin:2em 0 1em;text-align:center;font-size:.85rem}
+  @media(max-width:520px){.row{grid-template-columns:1fr 100px 44px}}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <h1>¿Cuánto necesito para el final? Calculadora de notas (escala 0 a 5)</h1>
+  <p class="lead">Averigua en segundos qué nota debes sacar en el examen final para aprobar la materia. Configurada con el sistema de calificación colombiano.</p>
+</header>
+
+<section class="tool" id="calculadora" aria-labelledby="t-calc">
+  <h2 id="t-calc">Calculadora de la nota del examen final</h2>
+
+  <fieldset>
+    <legend>Configuración</legend>
+    <div class="grid">
+      <div><label for="min">Nota mínima</label><input id="min" type="number" step="0.1" value="0"></div>
+      <div><label for="max">Nota máxima</label><input id="max" type="number" step="0.1" value="5"></div>
+      <div><label for="pass">Nota para aprobar</label><input id="pass" type="number" step="0.1" value="3"></div>
+      <div><label for="dec">Decimales</label><input id="dec" type="number" min="0" max="3" step="1" value="1"></div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Tus notas actuales</legend>
+    <div id="rows"></div>
+    <button type="button" class="btn-add" id="add">+ Agregar nota</button>
+  </fieldset>
+
+  <fieldset>
+    <legend>Examen final</legend>
+    <div class="grid">
+      <div><label for="fw">Porcentaje del examen final (%)</label><input id="fw" type="number" min="0" max="100" step="any" placeholder="Ej: 30" inputmode="decimal"></div>
+    </div>
+  </fieldset>
+
+  <div class="actions">
+    <button type="button" class="btn-calc" id="calc">Calcular</button>
+    <button type="button" class="btn-clear" id="clear">Limpiar</button>
+  </div>
+  <div class="err" id="err" role="alert" aria-live="assertive"></div>
+
+  <div class="result" id="res" hidden aria-live="polite">
+    <div class="msg" id="rmsg"></div>
+    <div class="big" id="rbig"></div>
+    <div class="stats">
+      <div class="stat"><small>Acumulado actual</small><strong id="sAcc"></strong></div>
+      <div class="stat"><small>Porcentaje evaluado</small><strong id="sPct"></strong></div>
+      <div class="stat"><small>Nota para aprobar</small><strong id="sPass"></strong></div>
+    </div>
+  </div>
+</section>
+
+<article>
+  <h2>¿Cómo calcular la nota que necesito en el examen final?</h2>
+  <p>Con esta calculadora solo debes escribir tus notas parciales (talleres, quices, parciales), el porcentaje que vale cada una y el peso del examen final. La herramienta aplica el <strong>promedio ponderado</strong> y te dice exactamente cuánto necesitas para alcanzar la nota mínima aprobatoria.</p>
+  <p>La fórmula es:</p>
+  <p><code>Nota necesaria = (Nota para aprobar − Σ(nota × porcentaje ÷ 100)) ÷ (porcentaje del final ÷ 100)</code></p>
+
+  <h3>Ejemplo práctico</h3>
+  <p>Tienes un 3.2 en el primer corte (30%) y un 2.8 en el segundo (30%). El examen final vale 40%. El acumulado es 3.2×0.30 + 2.8×0.30 = 1.8. Para llegar a 3.0 necesitas (3.0 − 1.8) ÷ 0.40 = <strong>3.0 en el final</strong>.</p>
+
+  <h2>Escala de calificación en Colombia</h2>
+  <p>El Decreto 1290 de 2009 permite que cada institución defina su escala, pero la más usada en colegios y universidades es la numérica de 0.0 a 5.0, con 3.0 como nota aprobatoria.</p>
+  <table>
+    <caption>Rangos de referencia de la escala 0.0 a 5.0</caption>
+    <thead><tr><th>Rango</th><th>Desempeño</th><th>Estado</th></tr></thead>
+    <tbody>
+      <tr><td>4.6 – 5.0</td><td>Superior</td><td>Aprobado</td></tr>
+      <tr><td>4.0 – 4.5</td><td>Alto</td><td>Aprobado</td></tr>
+      <tr><td>3.0 – 3.9</td><td>Básico</td><td>Aprobado</td></tr>
+      <tr><td>0.0 – 2.9</td><td>Bajo</td><td>No aprobado</td></tr>
+    </tbody>
+  </table>
+  <p>Si tu institución usa otra escala (por ejemplo, 0 a 10 o 0 a 100) o pide 3.5 para aprobar, cambia los valores en la sección de configuración y el cálculo se ajustará.</p>
+
+  <h2>Consejos para mejorar tu nota final</h2>
+  <ul>
+    <li>Revisa el syllabus o programa de la materia para confirmar los porcentajes reales de cada corte.</li>
+    <li>Si la nota necesaria es alta, prioriza los temas de mayor peso en el examen.</li>
+    <li>Pregunta por habilitaciones, recuperaciones o planes de mejoramiento antes de la fecha límite.</li>
+    <li>Recalcula cada vez que recibas una nueva nota para planear mejor tu estudio.</li>
+  </ul>
+
+  <h2>Preguntas frecuentes</h2>
+  <details><summary>¿Cuál es la nota mínima para aprobar en Colombia?</summary><p>En la mayoría de instituciones es 3.0 sobre 5.0. Algunas universidades o posgrados exigen 3.5 o más; ajústalo en la configuración.</p></details>
+  <details><summary>¿Los porcentajes deben sumar 100%?</summary><p>Sí. Las notas que ya tienes más el examen final deben sumar 100% del total de la materia. Si no suman, la calculadora te avisa.</p></details>
+  <details><summary>¿Qué hago si necesito más de 5.0?</summary><p>Significa que ya no puedes aprobar solo con el final. Consulta con tu docente por recuperaciones, habilitaciones o supletorios.</p></details>
+  <details><summary>¿Puedo usarla para colegio y universidad?</summary><p>Sí, sirve para cualquier materia con notas ponderadas, en escala colombiana o en otra que configures.</p></details>
+  <details><summary>¿Guarda mis datos?</summary><p>No. Todo el cálculo se hace en tu navegador y no se envía ninguna información a servidores.</p></details>
+</article>
+
+<footer>© <span id="y"></span> ¿Cuánto necesito para el final? · Calculadora de notas para Colombia</footer>
+</main>
+
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var rows=$("rows");
+  function addRow(n,w){
+    var d=document.createElement("div");d.className="row";
+    d.innerHTML='<div><label>Nota</label><input type="text" inputmode="decimal" class="n" placeholder="Ej: 3.5"></div>'+
+      '<div><label>Porcentaje (%)</label><input type="text" inputmode="decimal" class="w" placeholder="Ej: 20"></div>'+
+      '<button type="button" aria-label="Eliminar nota" title="Eliminar">✕</button>';
+    d.querySelector(".n").value=n||"";d.querySelector(".w").value=w||"";
+    d.querySelector("button").onclick=function(){if(rows.children.length>1)rows.removeChild(d)};
+    rows.appendChild(d);
+  }
+  function num(v){v=String(v).trim().replace(",",".");return v===""?NaN:Number(v)}
+  function init(){rows.innerHTML="";addRow();addRow();addRow()}
+  function fmt(x,dec){return x.toFixed(dec).replace(".",",")}
+  function showErr(m){$("err").textContent=m;$("res").hidden=true}
+
+  $("add").onclick=function(){addRow()};
+
+  $("calc").onclick=function(){
+    $("err").textContent="";
+    var min=num($("min").value),max=num($("max").value),pass=num($("pass").value),dec=parseInt($("dec").value,10);
+    if(isNaN(min)||isNaN(max)||isNaN(pass)){return showErr("Completa la configuración (mínima, máxima y nota para aprobar).")}
+    if(isNaN(dec)||dec<0||dec>3)dec=1;
+    if(max<=min){return showErr("La nota máxima debe ser mayor que la mínima.")}
+    if(pass<min||pass>max){return showErr("La nota para aprobar debe estar entre la mínima y la máxima.")}
+    var fw=num($("fw").value);
+    if(isNaN(fw)||fw<=0||fw>100){return showErr("Escribe el porcentaje del examen final (mayor que 0 y hasta 100).")}
+    var acc=0,pct=0,items=rows.querySelectorAll(".row");
+    for(var i=0;i<items.length;i++){
+      var n=num(items[i].querySelector(".n").value),w=num(items[i].querySelector(".w").value);
+      if(isNaN(n)&&isNaN(w))continue;
+      if(isNaN(n)||isNaN(w))return showErr("La fila "+(i+1)+" está incompleta: escribe la nota y su porcentaje.");
+      if(n<min||n>max)return showErr("La nota de la fila "+(i+1)+" debe estar entre "+fmt(min,dec)+" y "+fmt(max,dec)+".");
+      if(w<=0||w>100)return showErr("El porcentaje de la fila "+(i+1)+" debe ser mayor que 0 y hasta 100.");
+      acc+=n*w/100;pct+=w;
+    }
+    if(pct===0)return showErr("Agrega al menos una nota con su porcentaje.");
+    var total=pct+fw;
+    if(Math.abs(total-100)>0.001)return showErr("Los porcentajes suman "+total.toFixed(2).replace(/\.?0+$/,"")+"%. Deben sumar 100% (notas actuales + examen final).");
+    var need=(pass-acc)/(fw/100),msg,big;
+    if(need<=min){msg="¡Felicitaciones! Ya aprobaste la materia, incluso si sacas la nota mínima en el final.";big=fmt(Math.max(need,min)<=min?min:need,dec)}
+    else if(need>max){msg="Con tus notas actuales ya no es posible aprobar solo con el examen final. Consulta por recuperaciones o habilitaciones.";big=fmt(need,dec)+" (supera el máximo de "+fmt(max,dec)+")"}
+    else{msg="Necesitas sacar como mínimo esta nota en el examen final para aprobar:";big=fmt(need,dec)}
+    $("rmsg").textContent=msg;$("rbig").textContent=big;
+    $("sAcc").textContent=fmt(acc,2)+" de "+fmt(pass,dec);
+    $("sPct").textContent=fmt(pct,0).replace(/,0+$/,"")+"%";
+    $("sPass").textContent=fmt(pass,dec);
+    $("res").hidden=false;
+  };
+
+  $("clear").onclick=function(){
+    init();$("fw").value="";$("err").textContent="";$("res").hidden=true;
+    $("min").value=0;$("max").value=5;$("pass").value=3;$("dec").value=1;
+  };
+  $("y").textContent=new Date().getFullYear();
+  init();
+})();
+</script>
+</body>
+</html>
